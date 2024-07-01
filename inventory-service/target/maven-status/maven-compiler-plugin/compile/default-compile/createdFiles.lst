@@ -1,0 +1,7 @@
+com\empiricism\lnd\jnventoryservice\inventory\InventoryResponseDto.class
+com\empiricism\lnd\jnventoryservice\inventory\InventoryRepository.class
+com\empiricism\lnd\jnventoryservice\inventory\InventoryService.class
+com\empiricism\lnd\jnventoryservice\InventoryServiceApplication.class
+com\empiricism\lnd\jnventoryservice\inventory\InventoryResponseDto$InventoryResponseDtoBuilder.class
+com\empiricism\lnd\jnventoryservice\inventory\InventoryController.class
+com\empiricism\lnd\jnventoryservice\inventory\Inventory.class

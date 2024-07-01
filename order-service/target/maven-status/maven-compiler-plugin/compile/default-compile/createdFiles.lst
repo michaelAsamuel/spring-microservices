@@ -1,0 +1,13 @@
+com\empiricism\lnd\orderservice\config\WebClientConfig.class
+com\empiricism\lnd\orderservice\order\OrderResponse$OrderResponseBuilder.class
+com\empiricism\lnd\orderservice\order\OrderResponse.class
+com\empiricism\lnd\orderservice\OrderServiceApplication.class
+com\empiricism\lnd\orderservice\order\OrderRepository.class
+com\empiricism\lnd\orderservice\order\Order.class
+com\empiricism\lnd\orderservice\order\OrderController.class
+com\empiricism\lnd\orderservice\order\OrderLineitemDto.class
+com\empiricism\lnd\orderservice\order\OrderLineitem.class
+com\empiricism\lnd\orderservice\inventory\InventoryResponseDto$InventoryResponseDtoBuilder.class
+com\empiricism\lnd\orderservice\inventory\InventoryResponseDto.class
+com\empiricism\lnd\orderservice\order\OrderService.class
+com\empiricism\lnd\orderservice\order\OrderRequest.class

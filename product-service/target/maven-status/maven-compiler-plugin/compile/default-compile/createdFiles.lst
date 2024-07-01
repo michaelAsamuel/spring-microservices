@@ -1,0 +1,10 @@
+com\empiricism\lnd\productservice\product\ProductRequest.class
+com\empiricism\lnd\productservice\product\ProductResponse.class
+com\empiricism\lnd\productservice\product\Product.class
+com\empiricism\lnd\productservice\product\ProductController.class
+com\empiricism\lnd\productservice\product\ProductRequest$ProductRequestBuilder.class
+com\empiricism\lnd\productservice\product\ProductResponse$ProductResponseBuilder.class
+com\empiricism\lnd\productservice\product\Product$ProductBuilder.class
+com\empiricism\lnd\productservice\ProductServiceApplication.class
+com\empiricism\lnd\productservice\product\ProductService.class
+com\empiricism\lnd\productservice\product\ProductRepository.class
