@@ -2,10 +2,15 @@ package com.empiricism.lnd.orderservice.order;
 
 import com.empiricism.lnd.orderservice.config.WebClientConfig;
 import com.empiricism.lnd.orderservice.inventory.InventoryResponseDto;
+import io.netty.resolver.DefaultAddressResolverGroup;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+import reactor.netty.http.client.HttpClient;
+import reactor.netty.transport.ClientTransport;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +22,7 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void createOrder(OrderRequest orderRequest){
         Order order = new Order();
@@ -34,14 +39,15 @@ public class OrderService {
                 .toList();
 
         // Call Inventory Service to check if stock is available
-        InventoryResponseDto[] inventoryResponseDtoArray = webClient.get()
-                .uri("http://localhost:8082/api/v1/inventory",
+        var inventoryResponseDtoArray = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/v1/inventory",
                         uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes)
                                 .build())
-                .retrieve().bodyToMono( InventoryResponseDto[].class)
+                .retrieve()
+                .bodyToMono( InventoryResponseDto[].class)
                 .block();
 
-        boolean hasAllProductsInStock = Arrays.stream(inventoryResponseDtoArray)
+        boolean hasAllProductsInStock =  Arrays.stream(inventoryResponseDtoArray)
                 .allMatch(InventoryResponseDto::isInStock);
 
         if(hasAllProductsInStock) {
